@@ -25,9 +25,9 @@ pygame.display.set_caption("Flappy Bird")
 clock = pygame.time.Clock()
 
 # Load assets
-bird_img = pygame.image.load("/home/priyanka/Documents/flappy-bird/images/bird.jpg").convert_alpha()
+bird_img = pygame.image.load("/home/priyanka/Documents/flappy_bird_game/flappy-bird-game/images/bird.jpg").convert_alpha()
 bird_img = pygame.transform.scale(bird_img, (30, 30))  # Resize the bird image
-pipe_img = pygame.image.load("/home/priyanka/Documents/flappy-bird/images/pipe.png").convert_alpha()
+pipe_img = pygame.image.load("/home/priyanka/Documents/flappy_bird_game/flappy-bird-game/images/pipe.png").convert_alpha()
 
 # Bird class
 class Bird:
