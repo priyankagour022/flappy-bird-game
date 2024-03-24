@@ -25,9 +25,11 @@ pygame.display.set_caption("Flappy Bird")
 clock = pygame.time.Clock()
 
 # Load assets
-bird_img = pygame.image.load("/home/priyanka/Documents/flappy_bird_game/flappy-bird-game/images/bird.jpg").convert_alpha()
+bird_img = pygame.image.load("/home/priyanka/Documents/flappy-bird-game/images/bird.jpg").convert_alpha()
 bird_img = pygame.transform.scale(bird_img, (30, 30))  # Resize the bird image
-pipe_img = pygame.image.load("/home/priyanka/Documents/flappy_bird_game/flappy-bird-game/images/pipe.png").convert_alpha()
+pipe_img = pygame.image.load("/home/priyanka/Documents/flappy-bird-game/images/pipe.png").convert_alpha()
+cloud_img = pygame.image.load("/home/priyanka/Documents/flappy-bird-game/images/background.png").convert_alpha()
+cloud_img = pygame.transform.scale(cloud_img, (WIDTH, HEIGHT))  # Resize the cloud image to fit the screen
 
 # Bird class
 class Bird:
@@ -67,11 +69,15 @@ class Pipe:
 # Functions
 def draw_window():
     screen.fill(WHITE)
-    screen.blit(bird.image, bird.rect)
+    screen.blit(cloud_img, (0, 0))  # Draw the cloud image as the background
     for pipe in pipes:
         screen.blit(pipe.image, pipe.top_rect)
         screen.blit(pipe.image, pipe.bottom_rect)
+    screen.blit(bird.image, bird.rect)
     pygame.display.update()
+
+# Rest of the code remains unchanged...
+
 
 def check_collision():
     if bird.rect.top <= 0 or bird.rect.bottom >= HEIGHT:
